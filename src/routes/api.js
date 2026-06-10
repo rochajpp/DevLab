@@ -1,4 +1,8 @@
 module.exports = (app) => {
+    app.get("/", (req, res) => {
+        res.redirect("/api-docs");
+        return;
+    })
      /**
      * @swagger
      * /api/users:

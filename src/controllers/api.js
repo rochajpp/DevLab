@@ -14,8 +14,16 @@ module.exports.getAll = async (app, req, res) => {
 }
 
 module.exports.create = async (app, req, res) => {
-
     const data = req.body;
-    
-    res.send(data);
+
+    if(!data.name || !data.email){
+        return res.status(400).send("Nome e email obrigatórios");
+    }
+
+    try{
+        User.create(data);
+        return res.status(200).send("Usuário salvo com sucesso")
+    } catch(e){
+        return res.status(500).send("Erro ao salvar dados");
+    }
 }
