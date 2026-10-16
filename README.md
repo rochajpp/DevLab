@@ -1,40 +1,43 @@
-# Desenvolvimento Web
+# 🌐 Desenvolvimento Web
 
-Nesta seção, vamos desenvolver uma página simples de login enquanto explico e comento cada etapa do processo.
+Nessa seção iremos desenvolver uma página simples de login, comentando e pontuando todo o processo.
 
 ![Modelo da página](./model.png)
 
-## 1. Como funciona o HTML
+## 🧱 1. Como funciona o HTML
 
-Antes de tudo, abra o VS Code e crie um arquivo chamado `index.html`.
+Antes de tudo, abra seu VS Code e crie um arquivo chamado `index.html`.
 
-No arquivo, digite `html:5`. O VS Code deverá mostrar uma opção de autocomplete. Pressione **Enter** para gerar uma estrutura básica de HTML, semelhante a esta:
+Agora, no arquivo, escreva `html:5`. O VS Code irá mostrar uma opção de autocomplete. Pressione **Enter** nessa opção e ele irá gerar uma estrutura básica do HTML, algo como:
 
 ```html
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
 </body>
+
 </html>
 ```
 
-Por enquanto, vamos trabalhar entre as tags `<body>` e `</body>`.
+Por enquanto, iremos trabalhar no espaço entre as tags `<body>` e `</body>`.
 
-Para visualizar a interface, instale a extensão **Live Server** no VS Code. Depois da instalação, clique em **Go Live**, no canto inferior direito. A página será aberta no navegador, geralmente em um endereço como `http://127.0.0.1:5500`.
+Para visualizar a interface, instale a extensão **Live Server** no VS Code. Após instalar, aparecerá um botão **Go Live** no canto inferior direito. Clique nele para abrir a página no navegador, geralmente em um endereço como `http://127.0.0.1:5500`.
 
-**Observação:** lembre-se de salvar o arquivo depois de cada alteração.
+**Observação:** lembre-se sempre de salvar o arquivo depois de uma alteração.
 
-### 1.1. Elementos básicos do HTML
+### 📝 1.1. Elementos básicos do HTML
 
-HTML é uma linguagem de marcação. Com ela, definimos os elementos da nossa interface.
+O HTML é uma linguagem de marcação. Nele, vamos definir todos os elementos da nossa interface.
 
-Textos, imagens, ícones e outros elementos da página são definidos no HTML.
+Cada texto, imagem, ícone e outros elementos serão definidos no HTML.
 
 Por exemplo, escreva:
 
@@ -42,7 +45,7 @@ Por exemplo, escreva:
 <p>Teste</p>
 ```
 
-A tag `<p>` é usada para criar um parágrafo. O texto escrito entre as tags aparecerá na página com a formatação padrão do navegador.
+Essa tag `<p>` é utilizada para adicionar um parágrafo, ou seja, um texto na nossa página. Tudo o que escrevermos entre as tags aparecerá na tela com a formatação padrão do navegador.
 
 Agora, escreva logo abaixo:
 
@@ -50,23 +53,27 @@ Agora, escreva logo abaixo:
 <h1>Título</h1>
 ```
 
-A tag `<h1>` representa o título principal da página. Por padrão, ele aparece maior e em negrito, mas sua aparência pode ser alterada com CSS.
+A tag `<h1>` representa o título principal da página. Por padrão, ela apresenta um texto maior e em negrito, sendo ótima para títulos.
 
-Também temos a tag de botão. Escreva:
+Mas, claro, toda essa estilização poderá ser configurada com CSS.
+
+Temos também uma tag para criar botões.
+
+Escreva:
 
 ```html
 <button>Cadastrar</button>
 ```
 
-Agora você verá um botão básico na interface.
+Agora você verá um botão básico na sua interface.
 
-### 1.2. Organizando os elementos com `div` e `class`
+### 📦 1.2. Organizando os componentes com `div`
 
-Certo, agora que temos esses elementos no HTML, precisamos organizá-los para conseguir estilizá-los da forma que queremos. Para isso, podemos usar a tag `<div>`.
+Certo, agora que temos esses componentes no HTML, precisamos organizá-los de forma que consigamos estilizar cada parte da maneira que queremos. Para isso, usamos a tag `<div>`.
 
-Sozinha, a `div` não muda necessariamente a aparência dos elementos. Ela serve como um contêiner para agrupar componentes que precisam ser organizados ou estilizados em conjunto.
+Essa tag, sozinha, não irá fazer nada de diferente visualmente. Ela serve para agrupar componentes, pois haverá partes da nossa interface que terão suas próprias regras de espaçamento e estilização.
 
-Por exemplo:
+Dentro dessa `div`, podemos separar outros componentes:
 
 ```html
 <div>
@@ -75,7 +82,7 @@ Por exemplo:
 </div>
 ```
 
-Para identificar essa `div` no CSS, podemos atribuir a ela um nome usando o atributo `class`:
+E, para identificarmos essa `div` no CSS, precisamos nomeá-la. Para isso, usamos o atributo `class`:
 
 ```html
 <div class="boasVindas">
@@ -84,98 +91,108 @@ Para identificar essa `div` no CSS, podemos atribuir a ela um nome usando o atri
 </div>
 ```
 
-Agora, no CSS, podemos selecionar essa classe usando `.boasVindas` e definir a estilização desejada.
+Agora, no CSS, podemos selecionar a classe `.boasVindas` para estilizar esse componente.
 
-O atributo `class` pode ser usado em diferentes elementos HTML. Também podemos criar classes para elementos como `<h2>` e `<p>` quando isso ajudar a organizar e controlar melhor a estilização.
+O atributo `class` pode ser utilizado em diferentes tags. Se quiser nomear elementos como `<h2>` e `<p>`, você também pode. Muitas vezes, isso ajuda a deixar a estilização mais organizada e definida.
 
-### 1.3. Estrutura HTML do projeto
+### 🏗️ 1.3. HTML no projeto
 
 Abra o arquivo `index.html` dentro da pasta `src` e observe a estrutura.
 
-Isolei o conteúdo principal dentro de um componente `<main>`, que fica dentro do `<body>`. Assim, podemos configurar o conteúdo principal sem precisar aplicar todas as regras diretamente ao `body`.
+Isolei o conteúdo principal criando um componente `<main>` dentro do `body`, para não precisarmos configurar todo o conteúdo diretamente no `body`.
 
-Dentro de `main`, criei uma `div` chamada `container`, que reúne o conteúdo. Ter um contêiner principal facilita a centralização e outras estilizações.
+Dentro de `main`, criei uma `div` chamada `container`, onde ficará todo o conteúdo. É sempre bom criar um container principal, pois assim temos um componente que facilita a centralização do conteúdo e outras estilizações.
 
-Depois, criei uma `div` chamada `box`, que representa a caixa central da página. Dentro dela, temos duas áreas: o lado esquerdo, com a imagem, e o lado direito, com o formulário.
+Depois, criei uma `div` chamada `box`, que representa essa caixa central que vemos no meio da página.
+
+Dentro dela, temos duas áreas: o lado esquerdo, com a imagem, e o lado direito, com o formulário.
 
 No lado esquerdo, adicionei uma imagem com a tag `<img>`. No lado direito, criei uma `div` para o formulário, onde ficam os textos, os campos de entrada (*inputs*) e os botões.
 
-A área dos inputs foi separada para que seus elementos possam receber regras próprias de espaçamento e estilização.
+A área dos inputs foi separada para que eu possa configurar o espaçamento e a estilização desses componentes de forma independente, caso queira utilizar regras diferentes.
 
-E pronto: a estrutura HTML está feita.
+E pronto! Nosso HTML já está feito.
 
-Esta imagem representa a organização dos componentes:
+Esta imagem representa como nossos componentes ficam organizados:
 
 ![Diagrama da estrutura HTML](./diagram.png)
 
-Vale ressaltar que, na parte superior do HTML, temos uma linha semelhante a esta:
+Vale ressaltar que, na parte superior do HTML, temos algo como:
 
 ```html
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" type="text/css" href="./style.css">
 ```
 
-Essa linha conecta o HTML ao arquivo CSS. O atributo `rel="stylesheet"` indica que o arquivo vinculado é uma folha de estilos, e `href="./style.css"` informa o caminho do arquivo.
+Essa é a nossa conexão com o CSS. Criei um arquivo CSS e, por meio dessa linha, digo ao HTML que quero vinculá-lo ao arquivo de estilização.
 
-O atributo `type="text/css"` também pode ser usado, mas é desnecessário em HTML5, pois `text/css` já é o tipo padrão para folhas de estilo.
+O atributo `rel="stylesheet"` indica que o arquivo vinculado é uma folha de estilos. O atributo `type="text/css"` informa o tipo de conteúdo, mas é opcional em HTML5, pois o navegador já reconhece CSS nesse contexto.
 
-## 2. Como funciona o CSS
+Por último, temos `href="./style.css"`, que indica o caminho do arquivo CSS.
 
-O CSS é usado para definir a aparência dos elementos HTML. Depois de vincular o arquivo CSS ao HTML, podemos selecionar os componentes e aplicar estilos.
+## 🎨 2. Como funciona o CSS
 
-### 2.1. Selecionando elementos e classes
+O CSS é utilizado para definir a aparência dos elementos HTML. Após fazer a conexão no HTML, basta selecionar os componentes e aplicar os estilos desejados.
 
-Para selecionar uma classe definida no HTML, usamos um ponto (`.`) seguido do nome da classe.
+### 🔎 2.1. Selecionando elementos e classes
 
-Por exemplo, considerando este HTML:
+Se quisermos selecionar uma classe que nomeamos no HTML, usamos um ponto (`.`) seguido do nome da classe.
+
+Por exemplo:
 
 ```html
 <div class="conteudo">
 </div>
 ```
 
-No arquivo CSS, podemos escrever:
+No CSS, podemos escrever:
 
 ```css
 .conteudo {
-    /* Estilos da classe conteudo */
+
 }
 ```
 
-Tudo o que definirmos entre as chaves será aplicado aos elementos que tiverem a classe `conteudo`.
+Tudo o que escrevermos dentro das chaves será aplicado aos elementos que possuem a classe `conteudo`.
 
-Também podemos selecionar diretamente uma tag:
+Mas também podemos selecionar diretamente uma tag:
 
 ```css
 div {
-    /* Estilos aplicados a todas as divs */
+
 }
 ```
 
-Nesse caso, os estilos serão aplicados a todas as tags `<div>` da página.
+Nesse caso, a estilização será aplicada a todas as tags `<div>` da página.
 
 Da mesma forma, podemos selecionar o `body`:
 
 ```css
 body {
-    /* Estilos aplicados ao body */
+
 }
 ```
+
+Tudo o que estiver dentro dessas chaves será a estilização aplicada ao componente `body`.
 
 Quando queremos selecionar uma classe, usamos um ponto antes do nome:
 
 ```css
 .botao {
-    /* Estilos aplicados aos elementos com a classe botao */
+
 }
 ```
 
-Todos os elementos que tiverem a classe `botao` receberão esses estilos. Isso é útil quando queremos padronizar vários componentes.
+Aqui, a estilização será aplicada aos elementos que possuem a classe `botao`.
 
-Por exemplo, se quisermos que todos os inputs tenham a mesma aparência, podemos atribuir a mesma classe a eles e estilizar essa classe no CSS.
+Vale lembrar que todos os elementos que possuem a mesma classe podem receber as mesmas estilizações. Isso é importante quando temos vários componentes que devem seguir um padrão.
 
-### 2.2. CSS no projeto
+Por exemplo, se quisermos que todos os inputs tenham a mesma aparência, podemos atribuir a mesma classe a eles e estilizar essa classe no CSS. Assim, todos os elementos que possuem essa classe receberão as mesmas regras.
 
-Para começar, usamos o seletor universal `*` para aplicar estilos a todos os elementos:
+## 🛠️ 2.2. CSS no projeto
+
+Agora vamos aplicar esses conceitos ao nosso projeto, seguindo a ordem em que os seletores aparecem no arquivo CSS.
+
+### 🔹 1. Seletor universal (`*`)
 
 ```css
 * {
@@ -184,118 +201,177 @@ Para começar, usamos o seletor universal `*` para aplicar estilos a todos os el
 }
 ```
 
-Aqui, zeramos `margin` e `padding`, removendo os espaçamentos padrão que os navegadores aplicam a vários elementos. Assim, podemos definir os espaçamentos de acordo com o layout desejado.
+Quando criamos uma página HTML, vários elementos possuem margens e espaçamentos internos definidos pelo navegador.
 
-Depois, precisamos definir a altura do `body`, ou seja, quanto ele ocupará da tela:
+Por isso, é comum começar a estilização zerando esses valores, para termos mais controle sobre o layout.
+
+O seletor `*` significa que essa estilização será aplicada a todos os elementos.
+
+- **`margin: 0;`** — remove as margens externas dos elementos.
+- **`padding: 0;`** — remove os espaçamentos internos dos elementos.
+
+Assim, começamos a estilização do zero, definindo os espaçamentos conforme a necessidade do projeto.
+
+### 🔹 2. Corpo da página (`body`)
 
 ```css
 body {
     height: 100vh;
+
+    background-color: #f0f2f5;
+
+    font-family: sans-serif;
 }
 ```
 
-A unidade `vh` representa uma porcentagem da altura da área de visualização (*viewport*). Portanto, `100vh` corresponde à altura total da área de visualização.
+O `body` representa o corpo da página HTML. É nele que fica o conteúdo visível da nossa interface.
 
-Defino uma altura semelhante para o `main` e para `.main-container`, para que também ocupem toda a altura da área de visualização. Existem outras formas de organizar isso, mas, por enquanto, vamos usar uma abordagem básica.
+Por padrão, o conteúdo pode parecer concentrado no topo da página. O DevTools do navegador pode ajudar a visualizar as dimensões dos elementos e entender como eles ocupam espaço.
 
-Em seguida, quero centralizar os elementos filhos de `.main-container`. Para isso, uso `display: flex`. Existem outros tipos de `display`, mas prefiro trabalhar com Flexbox; dependendo do layout, outras opções também podem ser mais adequadas.
+- **`height: 100vh;`** — define a altura do `body` como 100% da altura da área visível da tela, chamada *viewport*. A unidade `vh` representa uma porcentagem da altura do viewport.
+- **`background-color: #f0f2f5;`** — define a cor de fundo da página.
+- **`font-family: sans-serif;`** — define a família tipográfica utilizada nos textos.
 
-Com o Flexbox, podemos usar duas propriedades importantes:
+### 🔹 3. Elemento principal (`main`)
 
 ```css
-.main-container {
+main {
+    height: 100vh;
+}
+```
+
+Isolei o conteúdo principal dentro de `main`. Agora, também defino uma altura para esse componente.
+
+- **`height: 100vh;`** — faz com que o `main` tenha uma altura igual à altura do viewport.
+
+### 🔹 4. Container principal (`.container`)
+
+```css
+.container {
+    height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 ```
 
-- `align-items`: alinha os elementos no eixo transversal.
-- `justify-content`: distribui ou alinha os elementos no eixo principal.
+Dentro de `main`, temos a classe `.container`, que reúne o conteúdo da página.
 
-Quando usamos `flex-direction: row`, o eixo principal é horizontal e o transversal é vertical. Por isso, nesse caso, `justify-content: center` centraliza horizontalmente e `align-items: center` centraliza verticalmente. Se mudarmos a direção para `column`, os eixos se invertem.
+Aqui, quero que os componentes filhos fiquem centralizados.
 
-No `.box`, defino a altura (`height`) e a largura (`width`) usando `rem`, uma unidade relativa ao tamanho da fonte do elemento raiz (`html`). Em navegadores com a configuração padrão, `1rem` normalmente equivale a `16px`. Podemos ajustar os valores até encontrar um tamanho adequado para a caixa.
+Para isso, utilizo `display: flex`. Existem vários valores possíveis para a propriedade `display`, mas prefiro trabalhar com Flexbox. Dependendo do layout, outras opções também podem ser mais adequadas.
 
-Em seguida, vou estilizar o efeito de sombra que faz a caixa parecer elevada. Para isso, usamos `box-shadow`, que pode receber valores como `1px 1px 10px color`.
+- **`height: 100vh;`** — faz o container ocupar toda a altura do viewport.
+- **`display: flex;`** — ativa o Flexbox, permitindo organizar e alinhar os elementos filhos.
+- **`align-items: center;`** — alinha os elementos no eixo transversal.
+- **`justify-content: center;`** — alinha os elementos no eixo principal.
 
-- O primeiro valor representa o deslocamento horizontal da sombra.
-- O segundo valor representa o deslocamento vertical.
-- O terceiro valor define o desfoque da sombra.
-- O último valor define a cor.
+Essas duas últimas propriedades têm funcionalidades mais amplas, mas, inicialmente, podemos entendê-las como propriedades que ajudam a centralizar os elementos.
 
-Depois, vamos arredondar os cantos da caixa com `border-radius`. Quanto maior o valor, mais arredondados serão os cantos.
+Como o Flexbox utiliza `row` como direção padrão, o eixo principal é horizontal e o transversal é vertical. Por isso, nesse caso, `justify-content: center` centraliza horizontalmente e `align-items: center` centraliza verticalmente.
 
-Por último, definimos a cor de fundo da caixa com `background-color`. Neste caso, usamos `white`.
-
-Observe que, em `.box img`, estamos selecionando uma tag `<img>` que está dentro de um elemento com a classe `.box`. O CSS permite selecionar elementos com base nessa relação.
-
-No `img`, usamos `border-top-left-radius` e `border-bottom-left-radius`. Essas propriedades arredondam apenas os cantos especificados: o superior esquerdo (*top left*) e o inferior esquerdo (*bottom left*).
-
-### 2.3. Estilizando o formulário
-
-Na classe `.form`, começo definindo `width: 100%`. Isso faz com que o formulário tente ocupar toda a largura disponível do seu contêiner. A largura efetiva depende do espaço disponível e das regras de layout aplicadas aos elementos ao redor.
-
-Logo depois, uso `display: flex` para organizar os elementos e `flex-direction: column` para colocar os elementos filhos de `.form` em coluna, um abaixo do outro.
-
-Depois, defino um `gap`, que controla o espaçamento entre os elementos filhos do contêiner flexível. Você pode testar valores diferentes e observar como a distância entre os componentes muda.
-
-No `h2`, apenas mudamos a cor do texto usando `color`.
-
-Na classe `.inputs`, fazemos configurações que já vimos: usamos Flexbox, definimos o espaçamento com `gap` e configuramos `width: 100%`.
-
-No `input`, fazemos algo novo: definimos o `padding`.
-
-`padding` é uma propriedade CSS que controla o espaçamento interno de um elemento. É parecido com `margin`, mas existe uma diferença:
-
-- `margin` controla o espaçamento externo ao redor do elemento.
-- `padding` controla o espaço interno, entre o conteúdo e a borda do elemento.
-
-Altere os valores para mais e para menos e observe a diferença.
-
-Depois, configuramos a borda dos inputs com `border`, que pode receber três valores:
-
-1. A espessura da borda.
-2. O estilo da linha — por exemplo, `solid` para uma linha contínua.
-3. A cor da borda.
-
-### 2.4. Estilizando o botão e criando uma transição
-
-Para finalizar, temos o `button`. Aqui, aparecem três propriedades importantes.
-
-Uma delas é `cursor`, que define o cursor exibido quando o ponteiro passa sobre um elemento. No nosso caso, usamos `pointer`, que normalmente mostra o cursor em formato de mão.
-
-Também temos `transition`, que controla a transição entre os estados de uma propriedade CSS. Mas por que usamos isso?
-
-A resposta está em `button:hover`.
-
-Quando selecionamos um componente com `:hover`, definimos estilos que serão aplicados enquanto o ponteiro estiver sobre ele. Aqui, vamos reduzir a opacidade para 70%:
+### 🔹 5. Caixa principal (`.box`)
 
 ```css
-button {
-    cursor: pointer;
-    transition: opacity 0.5s;
-}
+.box {
+    width: 50rem;
+    height: 30rem;
 
-button:hover {
-    opacity: 0.7;
+    display: flex;
+
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.497);
+
+    border-radius: 1rem;
+
+    background-color: white;
 }
 ```
 
-Ao passar o ponteiro sobre o botão, a opacidade diminui. A propriedade `transition` faz essa mudança acontecer gradualmente, em vez de ocorrer de forma instantânea.
+No `.box`, definimos a largura e a altura da caixa central da nossa interface.
 
-Agora, faça um teste:
+- **`width: 50rem;`** — define a largura da caixa.
+- **`height: 30rem;`** — define a altura da caixa.
 
-1. Passe o ponteiro sobre o botão e observe a transição.
-2. Remova `transition: opacity 0.5s` e passe o ponteiro novamente. A mudança será instantânea.
-3. Adicione a transição novamente e aumente o tempo para `5s`. Você verá que a opacidade demora mais para chegar ao novo valor.
+Utilizamos `rem`, uma unidade de medida relativa ao tamanho da fonte do elemento raiz, geralmente o `html`. Na configuração padrão dos navegadores, `1rem` normalmente equivale a `16px`.
 
-Esse é um exemplo simples de como podemos melhorar a experiência visual com CSS.
+Aqui, podemos aumentar ou diminuir os valores até encontrarmos um tamanho adequado para a caixa.
 
-## 3. Conclusão
+Em seguida, temos:
 
-Essas habilidades são desenvolvidas com a prática, pois o desenvolvimento visual envolve observar a interface e decidir o que precisa ser ajustado. Ao olhar para uma página, você pode perceber que precisa de uma fonte maior, cantos arredondados ou uma sombra. Se ainda não souber como fazer isso, pode pesquisar a propriedade CSS adequada.
+- **`display: flex;`** — organiza os componentes filhos usando Flexbox. Como a direção padrão é `row`, eles ficam lado a lado.
 
-Algumas propriedades aparecem com frequência, como as que vimos aqui. Com a prática, você vai se familiarizar com elas e lembrar melhor de como usá-las.
+Agora vamos estilizar o efeito de sombra que faz a caixa parecer elevada:
 
-O ponto que considero mais importante é entender a lógica de organização dos componentes e aprender a estruturar o HTML de uma forma que facilite a estilização com CSS.
+- **`box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.497);`** — adiciona uma sombra à caixa.
+
+A propriedade `box-shadow` recebe valores que definem o deslocamento, o desfoque e a cor da sombra.
+
+Neste exemplo:
+
+1. O primeiro `1px` representa o deslocamento horizontal da sombra.
+2. O segundo `1px` representa o deslocamento vertical.
+3. O `10px` representa a intensidade do desfoque.
+4. `rgba(0, 0, 0, 0.497)` define a cor preta com transparência.
+
+Depois disso, vamos arredondar os cantos da caixa:
+
+- **`border-radius: 1rem;`** — arredonda os cantos. Quanto maior o valor, mais arredondados eles ficam.
+
+Por último:
+
+- **`background-color: white;`** — define a cor de fundo da caixa como branca.
+
+### 🔹 6. Imagem da caixa (`.box img`)
+
+```css
+.box img {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+```
+
+Veja que, em `.box img`, estamos selecionando uma tag `<img>` que está dentro de um elemento com a classe `.box`.
+
+O CSS permite selecionar elementos com base nessa relação, aplicando estilos apenas às imagens que estão dentro da caixa.
+
+- **`border-top-left-radius: 1rem;`** — arredonda o canto superior esquerdo da imagem.
+- **`border-bottom-left-radius: 1rem;`** — arredonda o canto inferior esquerdo da imagem.
+
+As propriedades têm nomes parecidos com `border-radius`, pois também servem para arredondar os cantos. A diferença é que, nesse caso, escolhemos exatamente quais cantos serão arredondados.
+
+`top left` significa superior esquerdo, enquanto `bottom left` significa inferior esquerdo.
+
+### 🔹 7. Formulário (`.form`)
+
+```css
+.form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3rem;
+}
+```
+
+Na classe `.form`, começamos definindo `width: 100%`.
+
+- **`width: 100%;`** — define a largura do formulário como 100% do espaço de referência disponível.
+
+O espaço disponível depende do componente pai, que neste caso é a `.box`. Como dentro dela temos a imagem e o formulário, o espaço precisa ser dividido entre esses componentes.
+
+Logo depois, utilizamos o Flexbox para organizar os elementos:
+
+- **`display: flex;`** — ativa o Flexbox.
+- **`flex-direction: column;`** — define a direção dos elementos filhos como coluna, deixando um componente abaixo do outro.
+- **`align-items: center;`** — centraliza os elementos no eixo transversal. Como a direção é `column`, isso corresponde à centralização horizontal.
+- **`justify-content: center;`** — centraliza os elementos no eixo principal, que nesse caso é vertical.
+
+Por último, temos uma propriedade nova:
+
+- **`padding: 3rem;`** — define o espaçamento interno do formulário em todos os lados.
+
+O `padding` cria espaço
