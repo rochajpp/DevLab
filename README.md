@@ -374,4 +374,203 @@ Por último, temos uma propriedade nova:
 
 - **`padding: 3rem;`** — define o espaçamento interno do formulário em todos os lados.
 
-O `padding` cria espaço
+O `padding` cria espaço entre o conteúdo do elemento e suas bordas. Vamos explorar melhor essa propriedade quando chegarmos aos inputs.
+
+### 🔹 8. Container do formulário (`.form-container`)
+
+```css
+.form-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+```
+
+A classe `.form-container` agrupa os elementos internos do formulário.
+
+- **`width: 100%;`** — define a largura como 100% do espaço de referência disponível.
+- **`display: flex;`** — ativa o Flexbox.
+- **`flex-direction: column;`** — organiza os componentes filhos em coluna.
+- **`gap: 1.5rem;`** — define o espaçamento entre os componentes filhos.
+
+A propriedade `gap` facilita o controle da distância entre os elementos. Podemos testar valores maiores ou menores e observar como o espaçamento muda.
+
+### 🔹 9. Título (`h2`)
+
+```css
+h2 {
+    color: #333333;
+}
+```
+
+No `h2`, fazemos uma configuração simples.
+
+- **`color: #333333;`** — define a cor do texto do título como cinza-escuro.
+
+Podemos selecionar diretamente a tag `h2` porque queremos aplicar essa regra aos títulos desse tipo.
+
+### 🔹 10. Container dos campos (`.inputs`)
+
+```css
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100%;
+}
+```
+
+Na classe `.inputs`, fazemos algumas configurações que já vimos anteriormente.
+
+- **`display: flex;`** — ativa o Flexbox.
+- **`flex-direction: column;`** — organiza os elementos em coluna.
+- **`gap: 1rem;`** — define o espaçamento entre os elementos filhos.
+- **`width: 100%;`** — define a largura como 100% do espaço de referência disponível.
+
+Aqui, organizamos os campos de entrada e definimos a distância entre eles.
+
+### 🔹 11. Área de cada campo (`.input-area`)
+
+```css
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    width: 100%;
+}
+```
+
+A classe `.input-area` organiza individualmente os elementos de cada campo do formulário, como o rótulo e o próprio input.
+
+- **`display: flex;`** — ativa o Flexbox.
+- **`flex-direction: column;`** — posiciona os elementos um abaixo do outro.
+- **`gap: 0.2rem;`** — define um pequeno espaçamento entre os elementos.
+- **`width: 100%;`** — define a largura como 100% do espaço de referência disponível.
+
+Separar cada área permite configurar os espaços entre o rótulo e o campo de entrada sem afetar diretamente os outros campos.
+
+### 🔹 12. Rótulos do formulário (`.form label`)
+
+```css
+.form label {
+    color: #555555;
+}
+```
+
+Nesse caso, estamos selecionando os elementos `label` que estão dentro de um componente com a classe `.form`.
+
+- **`color: #555555;`** — define a cor do texto dos rótulos como cinza.
+
+O espaço entre `.form` e `label` indica que queremos selecionar os rótulos que estão dentro do formulário, e não necessariamente todos os `label` da página.
+
+### 🔹 13. Campos de entrada (`input`)
+
+```css
+input {
+    padding: 0.5rem;
+
+    border-radius: 3px;
+
+    border: 1px solid #cccccc;
+}
+```
+
+Em `input`, fazemos algo novo: definimos o `padding`.
+
+O `padding` é uma propriedade CSS que controla o espaçamento interno de um componente. É parecido com `margin`, mas existe uma diferença:
+
+- **`margin`** — configura o espaçamento externo ao redor do componente.
+- **`padding`** — configura o espaçamento interno, entre o conteúdo e a borda do componente.
+
+No nosso código:
+
+- **`padding: 0.5rem;`** — adiciona espaçamento interno ao campo de entrada.
+
+Altere o valor para números maiores e menores e perceba a diferença na aparência do input.
+
+Depois disso, configuramos as bordas:
+
+- **`border-radius: 3px;`** — arredonda levemente os cantos do campo.
+- **`border: 1px solid #cccccc;`** — define a borda do input.
+
+A propriedade `border` recebe três valores principais neste exemplo:
+
+1. **`1px`** — define a espessura da borda.
+2. **`solid`** — define o estilo da linha. Nesse caso, é uma linha contínua.
+3. **`#cccccc`** — define a cor da borda.
+
+Assim, conseguimos personalizar a aparência dos campos de entrada.
+
+### 🔹 14. Botão (`.botao`)
+
+```css
+.botao {
+    padding: 0.8rem;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+
+    background-color: #0066ff;
+    color: white;
+
+    border: none;
+    border-radius: 3.2px;
+}
+```
+
+Para finalizar, temos o botão. Aqui, aparecem algumas propriedades novas.
+
+- **`padding: 0.8rem;`** — define o espaçamento interno do botão.
+- **`cursor: pointer;`** — define o cursor que aparece quando o ponteiro passa sobre o componente. O valor `pointer` normalmente exibe uma mãozinha apontando, indicando que o elemento pode ser clicado.
+- **`transition: 0.5s;`** — define uma transição de meio segundo para as mudanças de propriedades compatíveis.
+- **`background-color: #0066ff;`** — define a cor de fundo azul do botão.
+- **`color: white;`** — define a cor do texto como branca.
+- **`border: none;`** — remove a borda.
+- **`border-radius: 3.2px;`** — arredonda levemente os cantos do botão.
+
+Mas por que utilizamos `transition`? A resposta está logo abaixo, em `.botao:hover`.
+
+### 🔹 15. Efeito ao passar o mouse (`.botao:hover`)
+
+```css
+.botao:hover {
+    opacity: 70%;
+}
+```
+
+Quando utilizamos `:hover` em um componente, configuramos a estilização que será aplicada enquanto o ponteiro do mouse estiver sobre ele.
+
+Aqui, definimos que a opacidade do botão será reduzida para 70%.
+
+- **`opacity: 70%;`** — reduz a opacidade do botão, deixando-o visualmente mais transparente.
+
+Veja que, ao passar o mouse no botão, sua opacidade é minimamente reduzida.
+
+Agora faça um teste:
+
+1. Passe o mouse sobre o botão e observe a transição.
+2. Remova `transition: 0.5s;` da classe `.botao` e passe o mouse novamente.
+3. Veja que, sem a transição, a mudança acontece de forma instantânea.
+4. Agora volte com `transition: 0.5s;` e aumente o valor para `5s`, por exemplo.
+5. Você verá que demora mais para a opacidade chegar a 70%.
+
+A propriedade `transition` faz com que essa mudança visual aconteça de forma gradual, em vez de ocorrer instantaneamente.
+
+Esse é um exemplo simples de como podemos utilizar o CSS para melhorar a experiência visual de uma interface.
+
+## 💡 3. Considerações finais
+
+Essas habilidades vocês irão adquirindo com a prática, pois o desenvolvimento visual envolve observar a interface e perceber o que precisa ser ajustado.
+
+Ao olhar para uma interface, vocês irão perceber que talvez queiram uma fonte maior, um canto arredondado ou uma sombra. Caso ainda não saibam como fazer isso, poderão pesquisar e encontrar facilmente a propriedade necessária.
+
+Existem propriedades específicas que são utilizadas com frequência, como essas que mostrei aqui. Com o tempo e a prática, vocês irão se lembrar cada vez mais de como utilizá-las.
+
+O ponto que considero mais importante e que recomendo que vocês aprofundem é toda essa lógica de organização dos componentes: entender como estruturar o HTML da melhor forma para conseguir estilizar tudo corretamente com CSS.
+
+É essa organização que vai facilitar o desenvolvimento de interfaces cada vez mais completas.
